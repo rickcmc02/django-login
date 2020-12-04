@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+회원가입 페이지<br>
+<img src="{% static '1.jpg' %}" alt=""><br>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    * 표시 항목은 필수 작성<br>
+    {{ form.as_p }}
+    <input type="submit" value="회원가입">
+</form>

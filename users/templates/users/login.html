@@ -1,0 +1,18 @@
+{% load static %}
+로그인 페이지<br>
+
+{% if user.is_authenticated %}
+    로그인 성공! {{ user.nick_name }}님 환영합니다.<br>
+    {% if user.profile_img %}
+        <img src="{{ user.profile_img.url }}" alt="프로필사진"><br>
+    {% endif %}
+    <a href="{% url 'users:logout' %}">로그아웃</a>
+{% else %}
+    <img src="{% static '2.jpg' %}" alt=""><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="로그인">
+    </form>
+    <a href="{% url 'users:signup' %}">회원가입</a>
+{% endif %}
