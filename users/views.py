@@ -44,3 +44,8 @@ def signup_view(request):
         form = SignupForm()
 
     return render(request, "users/signup.html", {'form': form})
+
+
+# 추가 - 회원정보
+class mypage_view():
+    template_name = "users/mypage.html"

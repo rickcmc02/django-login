@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from mylogin import settings
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -64,3 +64,11 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+'''
+# 추가
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)    # 현 계정의 사용자 가져오기
+    nick_name = models.CharField(max_length=20)     # 기존 닉네임 가져오는 방법 적용하면 좋을 것
+    profile_photo = models.ImageField(blank=True)
+'''
