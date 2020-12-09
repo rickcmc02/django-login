@@ -125,8 +125,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    # '/var/www/static/', # 나중에 배포할 때 필요한 경로
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
 AUTH_USER_MODEL = 'users.User'
 
